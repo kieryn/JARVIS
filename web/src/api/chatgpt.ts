@@ -7,9 +7,9 @@ const model = "gpt-3.5-turbo";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 export async function chatgpt(messageList: CleanChatMessage[], apiKey: string, dev: boolean) {
-  if(dev){
+  if (dev) {
     var endpoint = "http://localhost:8003/v1/chat/completions"
-  }else{
+  } else {
     var endpoint = "https://api.openai.com/v1/chat/completions"
   }
 
@@ -32,7 +32,7 @@ export async function chatgpt(messageList: CleanChatMessage[], apiKey: string, d
   } catch (error: any) {
     return {
       status: "error",
-      message: error.response.data.error.message,
+      message: "Unknown Error, please retry.",
     };
   }
 }
